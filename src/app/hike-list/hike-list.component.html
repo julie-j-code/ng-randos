@@ -5,8 +5,9 @@
 <div class="card-container">
     <div *ngFor="let hike of hikes" class="card card-small" tabindex="0">
 
-        <span>{{hike.name}}</span>
+        <span>
+            <a [routerLink]="['/hike', hike.id]">{{hike.name}}</a>
+        </span>
     </div>
-
 
 </div>

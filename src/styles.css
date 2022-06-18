@@ -15,6 +15,7 @@
   h5,
   h6 {
     margin: 8px 0;
+    font-weight: 500;
   }
 
   p {
@@ -81,11 +82,21 @@
     margin-top: 16px;
   }
 
+  input{
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    /* height: 40px; */
+    width: 200px;
+    margin: 16px;
+    padding: 8px;
+  }
+
   .card {
     border-radius: 4px;
     border: 1px solid #eee;
     background-color: #fafafa;
-    height: 40px;
+    min-height: 40px;
     width: 200px;
     margin: 0 8px 16px;
     padding: 16px;
@@ -119,14 +130,21 @@
     fill: rgb(105, 103, 103);
   }
 
+h1{line-height: 50px;}
+
   .card.highlight-card {
     background-color: #1976d2;
+    height: 50px;
     color: white;
     font-weight: 600;
     border: none;
     width: auto;
     min-width: 30%;
     position: relative;
+    padding: 4vh 0;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
   }
 
   .card.card.highlight-card span {
@@ -136,7 +154,7 @@
   svg#rocket {
     width: 80px;
     position: absolute;
-    left: -10px;
+    left: -20px;
     top: -24px;
   }
 
@@ -191,7 +209,7 @@
     margin: 0;
   } */
 
-  .circle-link {
+  /* .circle-link {
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -204,12 +222,12 @@
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: 1s ease-out;
-  }
+  } */
 
-  .circle-link:hover {
+  /* .circle-link:hover {
     transform: translateY(-0.25rem);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
+  } */
 
   footer {
     margin-top: 8px;
@@ -262,9 +280,9 @@
   @media screen and (max-width: 767px) {
 
     .card-container > *:not(.circle-link) ,
-    .terminal {
+    /* .terminal {
       width: 100%;
-    }
+    } */
 
     .card:not(.highlight-card) {
       height: 16px;
@@ -282,8 +300,10 @@
   }
 
   @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
+    svg#rocket-smoke, svg#rocket{
       display: none;
       visibility: hidden;
     }
+
+    /* h1{font-size: 1em;text-transform: capitalize;} */
   }

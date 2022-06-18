@@ -27,22 +27,8 @@
     </svg>
 
   </div>
-<p>Bienvenue sur ce site consacré à la rando</p>
 
 
-<div>Filter by : 
-
-    <input type="text" class=".card" [(ngModel)]="searchTerms">
-     
-</div>
-
-<div class="card-container">
-
-    <div *ngFor="let hike of hikes | hikeFilter:searchTerms" class="card card-small" tabindex="0">
-
-        <span>
-            <a [routerLink]="['/hike', hike.id]">{{hike.name}}</a>
-        </span>
-    </div>
-
+<div>
+    Application pour randonneur permettant de pratiquer Angular 2
 </div>

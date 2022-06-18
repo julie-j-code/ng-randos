@@ -8,7 +8,9 @@ import { HikeService } from '../shared/hike.service';
   styleUrls: ['./hike-list.component.css']
 })
 export class HikeListComponent implements OnInit {
+  title:string="Liste des randonnées";
   hikes:Hike[]=[];
+  searchTerms:string="";
 
   constructor(private service:HikeService) { }
 

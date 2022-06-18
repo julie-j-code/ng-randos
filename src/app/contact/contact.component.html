@@ -27,22 +27,34 @@
     </svg>
 
   </div>
-<p>Bienvenue sur ce site consacré à la rando</p>
 
-
-<div>Filter by : 
-
-    <input type="text" class=".card" [(ngModel)]="searchTerms">
-     
-</div>
-
-<div class="card-container">
-
-    <div *ngFor="let hike of hikes | hikeFilter:searchTerms" class="card card-small" tabindex="0">
-
-        <span>
-            <a [routerLink]="['/hike', hike.id]">{{hike.name}}</a>
-        </span>
+<form #form="ngForm">
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" ngModel placeholder="name" class="form-control" #msgName="ngModel" required [class.bg-danger]="msgName.invalid && msgName.touched">
     </div>
+    <div class="form-group" >
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" ngModel placeholder="email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="subject">Sujet</label>
+        <input type="text" id="subject" name="subject" ngModel placeholder="objet" class="form-control" #msgSubject="ngModel" required [class.bg-danger]="msgSubject.invalid && msgSubject.touched">
+    </div>
+    <div class="form-group mt-3">
+        <label for="service">Service</label>
+        <select name="service" id="service" ngModel class="form-control">
+            <option value="tech">Technique</option>
+            <option value="sales">Commercial</option>
+            <option value="guide">Guides</option>
+        </select>
+    </div>
+    <div class="form-group mt-5">
+        <label for="message">Message</label>
+        <textarea  id="message" ngModel name="message" laceholder="subject" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary mt-5" [disabled]="form.invalid">Envoyer</button>
 
-</div>
+</form>
+
+{{form.value | json}}

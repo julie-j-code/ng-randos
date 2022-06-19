@@ -1,0 +1,45 @@
+<p>add-hike works!</p>
+
+<form #form="ngForm" (submit)="createHike(form)">
+    <input type="number" id="id" name="id" ngModel class="invisible">
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" ngModel placeholder="name" class="form-control" #msgName="ngModel" required [class.bg-danger]="msgName.invalid && msgName.touched">
+    </div>
+    <div class="form-group" >
+        <label for="duration">Durée</label>
+        <input type="number" id="duration" name="duration" ngModel placeholder="duration" class="form-control">
+    </div>
+    <div class="form-group" >
+        <label for="region">Région</label>
+        <input type="text" id="region" name="region" ngModel placeholder="region" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="startingPoint">Point de départ</label>
+        <input type="text" id="startingPoint" name="startingPoint" ngModel placeholder="startingPoint" class="form-control" #msgStartingPoint="ngModel" required [class.bg-danger]="msgStartingPoint.invalid && msgStartingPoint.touched">
+    </div>
+    <div class="form-group">
+        <label for="distance">Distance</label>
+        <input type="number" id="distance" name="distance" ngModel placeholder="distance" class="form-control" #msgDistance="ngModel" required [class.bg-danger]="msgDistance.invalid && msgDistance.touched">
+    </div>
+    <div class="form-group">
+        <label for="distanceUnit">Unité</label>
+        <input type="text" id="distanceUnit" name="distanceUnit" ngModel placeholder="distanceUnit" class="form-control" #msgDistanceUnit="ngModel" required [class.bg-danger]="msgDistanceUnit.invalid && msgDistanceUnit.touched">
+    </div>
+    <div class="form-group">
+        <label for="heightDifference">Dénivelé positif</label>
+        <input type="number" id="heightDifference" name="heightDifference" ngModel placeholder="heightDifference" class="form-control" #msgHeightDifference="ngModel" required [class.bg-danger]="msgHeightDifference.invalid && msgHeightDifference.touched">
+    </div>
+    <div class="form-group">
+        <label for="evaluation">Evaluation</label>
+        <input type="number" id="evaluation" name="evaluation" ngModel placeholder="evaluation" class="form-control" #msgEvaluation="ngModel" required [class.bg-danger]="msgEvaluation.invalid && msgEvaluation.touched">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" ngModel placeholder="description" rows="5" cols="80" class="form-control ms-3" #msgDescription="ngModel" required [class.bg-danger]="msgDescription.invalid && msgDescription.touched"></textarea>
+    </div>
+
+    <button class="btn btn-primary mt-5" [disabled]="form.invalid">Envoyer</button>
+
+</form>
+

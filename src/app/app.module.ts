@@ -11,6 +11,7 @@ import { HikeFilterPipe } from './hike-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddHikeComponent } from './add-hike/add-hike.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ContactComponent } from './contact/contact.component';
     HikeDetailsComponent,
     HikeFilterPipe,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    AddHikeComponent
   ],
   imports: [
     BrowserModule,

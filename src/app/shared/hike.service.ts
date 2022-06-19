@@ -22,4 +22,8 @@ getHikesById(id:number):Observable<Hike>{
 
 }
 
+postHike(newHike:Hike){
+  return this.http.post(this._url,newHike )
+}
+
 }

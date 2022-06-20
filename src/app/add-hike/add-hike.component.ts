@@ -13,16 +13,17 @@ import { HikeService } from '../shared/hike.service';
 export class AddHikeComponent implements OnInit {
   hikes:any
   newHike:any
-  hike:any={
+  hike:Hike={
     "id": 0,
     "name": "",
     "duration": 0,
     "region": "",
     "startingPoint": "",
+    "area": "",
     "distance": 0,
     "distanceUnit": "km",
     "heightDifference": 0,
-    "evaluation": [0],
+    "evaluation": 0,
     "description": ""
   }
 
@@ -44,7 +45,6 @@ if (this.id>0) {
     }
     
   }
-
 
 
   createHike(newHike:NgForm){

@@ -9,18 +9,20 @@ import { HikeService } from '../shared/hike.service';
   styleUrls: ['./hike-details.component.css']
 })
 export class HikeDetailsComponent implements OnInit {
-  hike:any={
+  hike:Hike={
     "id": 0,
     "name": "",
     "duration": 0,
     "region": "",
+    "area": "",
     "startingPoint": "",
     "distance": 0,
     "distanceUnit": "km",
     "heightDifference": 0,
-    "evaluation": [0],
+    "evaluation": 0,
     "description": ""
   }
+
 
   title: string=""
 

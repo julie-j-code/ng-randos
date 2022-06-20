@@ -20,8 +20,6 @@
     <h1 *ngIf="id==0">Création</h1>
     <h1 *ngIf="id>0">Modification</h1>
 
-    {{id}} {{hike |json}}
-
     <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
       viewBox="0 0 516.119 1083.632">
       <path id="Path_40" data-name="Path 40"
@@ -32,45 +30,49 @@
   </div>
 
 <form #form="ngForm" (submit)="editHike(form.value)">
-    <input type="number" id="id" name="id" [(ngModel)]="hike.id" class="invisible">
+    <input type="number" id="id" name="id" [(ngModel)]="hike.id" class="invisible order-1">
     <div class="form-group">
         <label for="name">Nom</label>
         <input id="name" name="name" [(ngModel)]="hike.name" placeholder="name" class="form-control" #msgName="ngModel" required [class.bg-danger]="msgName.invalid && msgName.touched">
     </div>
     <div class="form-group" >
-        <label for="duration">Durée</label>
-        <input type="number" id="duration" name="duration" [(ngModel)]="hike.duration" placeholder="duration" class="form-control">
-    </div>
-    <div class="form-group" >
         <label for="region">Région</label>
         <input type="text" id="region" name="region" [(ngModel)]="hike.region" placeholder="region" class="form-control">
     </div>
-    <div class="form-group">
-        <label for="startingPoint">Point de départ</label>
-        <input type="text" id="startingPoint" name="startingPoint" [(ngModel)]="hike.startingPoint" placeholder="startingPoint" class="form-control" #msgStartingPoint="ngModel" required [class.bg-danger]="msgStartingPoint.invalid && msgStartingPoint.touched">
-    </div>
-    <div class="form-group">
-        <label for="distance">Distance</label>
-        <input type="number" id="distance" name="distance" [(ngModel)]="hike.distance" placeholder="distance" class="form-control" #msgDistance="ngModel" required [class.bg-danger]="msgDistance.invalid && msgDistance.touched">
-    </div>
-    <div class="form-group">
-        <label for="distanceUnit">Unité</label>
-        <input type="text" id="distanceUnit" name="distanceUnit" [(ngModel)]="hike.distanceUnit" placeholder="distanceUnit" class="form-control" #msgDistanceUnit="ngModel" required [class.bg-danger]="msgDistanceUnit.invalid && msgDistanceUnit.touched">
-    </div>
+    <div class="form-group" >
+      <label for="area">Localité</label>
+      <input type="text" id="area" name="area" [(ngModel)]="hike.area" placeholder="area" class="form-control">
+  </div>
+  <div class="form-group">
+      <label for="startingPoint">Point de départ</label>
+      <input type="text" id="startingPoint" name="startingPoint" [(ngModel)]="hike.startingPoint" placeholder="startingPoint" class="form-control" #msgStartingPoint="ngModel" required [class.bg-danger]="msgStartingPoint.invalid && msgStartingPoint.touched">
+  </div>
+  <div class="form-group">
+    <label for="distance">Distance</label>
+    <input type="number" id="distance" name="distance" [(ngModel)]="hike.distance" placeholder="distance" class="form-control" #msgDistance="ngModel" required [class.bg-danger]="msgDistance.invalid && msgDistance.touched">
+  </div>
+  <div class="form-group">
+    <label for="distanceUnit">Unité</label>
+    <input type="text" id="distanceUnit" name="distanceUnit" [(ngModel)]="hike.distanceUnit" placeholder="distanceUnit" class="form-control" #msgDistanceUnit="ngModel" required [class.bg-danger]="msgDistanceUnit.invalid && msgDistanceUnit.touched">
+  </div>
+  <div class="form-group" >
+      <label for="duration">Durée</label>
+      <input type="number" id="duration" name="duration" [(ngModel)]="hike.duration" placeholder="duration" class="form-control">
+  </div>
     <div class="form-group">
         <label for="heightDifference">Dénivelé positif</label>
         <input type="number" id="heightDifference" name="heightDifference" [(ngModel)]="hike.heightDifference" placeholder="heightDifference" class="form-control" #msgHeightDifference="ngModel" required [class.bg-danger]="msgHeightDifference.invalid && msgHeightDifference.touched">
     </div>
     <div class="form-group">
-        <label for="evaluation">Evaluation</label>
-        <input type="number" id="evaluation" name="evaluation" [(ngModel)]="hike.evaluation" placeholder="evaluation" class="form-control" #msgEvaluation="ngModel" required [class.bg-danger]="msgEvaluation.invalid && msgEvaluation.touched">
+        <label for="evaluation" class="d-block">Difficulté (de 1 à 6)</label>
+        <input type="range" min="0" max="6" id="evaluation" name="evaluation" [(ngModel)]="hike.evaluation" placeholder="evaluation" class="slider" #msgEvaluation="ngModel" required [class.bg-danger]="msgEvaluation.invalid && msgEvaluation.touched">
     </div>
-    <div class="form-group">
+    <div class="form-group description">
         <label for="description">Description</label>
-        <textarea id="description" name="description" [(ngModel)]="hike.description" placeholder="description" rows="5" cols="80" class="form-control ms-3" #msgDescription="ngModel" required [class.bg-danger]="msgDescription.invalid && msgDescription.touched"></textarea>
+        <textarea id="description" name="description" [(ngModel)]="hike.description" placeholder="description" rows="5" cols="80" class="form-control mt-3" #msgDescription="ngModel" required [class.bg-danger]="msgDescription.invalid && msgDescription.touched"></textarea>
     </div>
 
-    <button class="btn btn-primary mt-5" [disabled]="form.invalid">Envoyer</button>
+    <button class="btn btn-primary my-5 mx-3" [disabled]="form.invalid">Envoyer</button>
 
 </form>
 

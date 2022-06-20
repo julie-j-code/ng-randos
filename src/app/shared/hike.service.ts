@@ -26,4 +26,9 @@ postHike(newHike:Hike){
   return this.http.post(this._url,newHike )
 }
 
+editHike(hikeToEdit:any){
+  return this.http.put<Hike>(`${this._url}/${hikeToEdit.id}`, hikeToEdit)
+
+}
+
 }

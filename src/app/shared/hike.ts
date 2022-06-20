@@ -9,7 +9,7 @@ export interface Hike {
     duration: number;
     heightDifference: number;
     description: string;
-    evalution: number[];
+    evaluation: number;
     dateAddedAsTodo?: number;
     
 }

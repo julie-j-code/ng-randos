@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'hikes', component: HikeListComponent },
   { path: 'create', component: AddHikeComponent },
+  { path: 'create/:id', component: AddHikeComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 

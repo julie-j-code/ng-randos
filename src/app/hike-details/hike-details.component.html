@@ -42,3 +42,5 @@
 </div>
 
 <div *ngIf="!hike">Pas de randonnées correspondante trouvée</div>
+
+<div><button class="btn btn-warning"[routerLink]="['/create',hike.id]" >Editer</button></div>

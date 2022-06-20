@@ -19,8 +19,7 @@ export class HikeListComponent implements OnInit {
   }
 
   getAll():any {
-    this.service.getHikes();
-  
+    this.service.getHikes(); 
   
   }
  

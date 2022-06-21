@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddHikeComponent } from './add-hike/add-hike.component';
+import { NglCoreModule } from 'angular-leaflet';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AddHikeComponent } from './add-hike/add-hike.component';
     HikeFilterPipe,
     HomeComponent,
     ContactComponent,
-    AddHikeComponent
+    AddHikeComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

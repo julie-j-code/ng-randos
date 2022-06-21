@@ -1,0 +1,27 @@
+<!--
+  <form>
+    <label for="latitude">Latitude:</label>
+    <input id="latitude" type="text" />
+    <label for="longitude">Longitude:</label>
+    <input id="longitude" type="text" />
+  </form>
+-->
+
+
+<!-- Pour tester le draggable marker et la récupération des coordonnées : ok-->
+<div *ngIf="lat && lng" class="card highlight-card justify-content-around">
+  <p >
+    Latitude : {{lat}}
+  </p>
+  <p>
+    Longitude : {{lng}}
+  </p>
+</div>
+
+
+
+<div class="map-wrapper">
+  <div class="map-border">
+    <div id="map"></div>
+  </div>
+</div>

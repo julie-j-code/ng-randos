@@ -9,30 +9,22 @@ import { HikeService } from '../shared/hike.service';
   styleUrls: ['./hike-details.component.css']
 })
 export class HikeDetailsComponent implements OnInit {
-  hike:Hike={
-    "id": 0,
-    "name": "",
-    "duration": 0,
-    "region": "",
-    "area": "",
-    "startingPoint": "",
-    "distance": 0,
-    "distanceUnit": "km",
-    "heightDifference": 0,
-    "evaluation": 0,
-    "description": ""
-  }
+
+  hike: Hike 
 
 
-  title: string=""
+  title: string = ""
 
-  constructor(private service:HikeService, private route:ActivatedRoute) { }
+  constructor(private service: HikeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     let id = +this.route.snapshot.params['id'];
     this.title = `Détails de la randonnée ${id}`;
-    this.service.getHikesById(id).subscribe(data=>this.hike=data);
+    this.service.getHikesById(id).subscribe(data => {
+      this.hike = data;
+    });
   }
+
 
 
 }

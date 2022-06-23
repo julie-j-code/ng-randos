@@ -26,6 +26,7 @@ export class AddHikeComponent implements OnInit {
     "evaluation": 0,
     "description": ""
   }
+  // hike:Hike
 
   id:number=0;
 
@@ -59,6 +60,8 @@ if (this.id>0) {
   editHike(hikeToEdit:NgForm){
     console.log(hikeToEdit)
     this.service.editHike(hikeToEdit).subscribe(data=>console.log(data))
+
+
   }
 
 }

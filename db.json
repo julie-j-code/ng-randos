@@ -10,8 +10,8 @@
       "distanceUnit": "km",
       "duration": "240",
       "heightDifference": "267",
-      "description": "Randonnée sympa, à démarrer par le plan d'eau pour finir sur les hauteurs de Saint Aubin. Rochers imposants et des arbres magnifiques sont effectivement au rendez-vous. Bonne balade",
-      "evaluation": "2"
+      "evaluation": "2",
+      "description": "Randonnée sympa, à démarrer par le plan d'eau pour finir sur les hauteurs de Saint Aubin. Rochers imposants et des arbres magnifiques sont effectivement au rendez-vous. Bonne balade !"
     },
     {
       "id": 2,
@@ -23,7 +23,11 @@
       "distanceUnit": "km",
       "heightDifference": "200",
       "evaluation": "2",
-      "description": "Il faut être en forme pour cette rando car il y a beaucoup de dénivelés. Mais le jeu en vaut la chandelle car admirer les bords du Couesnon est un régal. Bonne randonnée !"
+      "description": "Il faut être en forme pour cette rando car il y a beaucoup de dénivelés. Mais le jeu en vaut la chandelle car admirer les bords du Couesnon est un régal. Bonne randonnée !",
+      "coords": {
+        "lat": 48.4502379,
+        "lng": -1.6017619
+      }
     },
     {
       "id": 3,

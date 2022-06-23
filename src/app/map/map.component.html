@@ -11,12 +11,21 @@
 <!-- Pour tester le draggable marker et la récupération des coordonnées : ok-->
 <div *ngIf="lat && lng" class="card highlight-card justify-content-around">
   <p >
-    Latitude : {{lat}}
+    Latitude lat : {{lat}}
   </p>
   <p>
     Longitude : {{lng}}
   </p>
 </div>
+
+
+<div *ngIf="hikeCoords">
+
+  <div>
+      Depuis enfant - hikeCoords : {{hikeCoords.lat}}
+  </div>
+</div>
+
 
 
 

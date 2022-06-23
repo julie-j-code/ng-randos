@@ -29,7 +29,7 @@
 
   </div>
 
-<form #form="ngForm" (submit)="editHike(form.value)">
+<form #form="ngForm" (submit)="editHike(form.value);form.reset()">
     <input type="number" id="id" name="id" [(ngModel)]="hike.id" class="invisible order-1">
     <div class="form-group">
         <label for="name">Nom</label>

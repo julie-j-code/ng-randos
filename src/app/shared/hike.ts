@@ -1,5 +1,5 @@
 export interface Hike {
-    id:number;
+    id: number;
     name: string;
     area: string;
     region: string;
@@ -11,5 +11,9 @@ export interface Hike {
     description: string;
     evaluation: number;
     dateAddedAsTodo?: number;
-    
+    coords?: {
+        lat?: number;
+        lng?: number;
+    }
+
 }

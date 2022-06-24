@@ -19,27 +19,27 @@
 
   <h1>Détail de votre randonnée</h1>
 
-
 </div>
-
-
 
 <div *ngIf="hike">
   <h2>{{ hike.name }}</h2>
-  <div>{{ hike.region }} - {{ hike.area }}</div>
+
   <div>
+    Région : {{ hike.region }} <br>
     Départ : {{ hike.startingPoint }} <br>
     Distance : {{ hike.distance}} {{ hike.distanceUnit }} <br>
     Durée : {{ hike.duration }} minutes <br>
     Description : {{ hike.description }}
     <div *ngIf="hike.coords">
-
       Latitude : {{hike.coords.lat}}
+      Longitude : {{hike.coords.lng}}
     </div>
   </div>
 
   <!--On inclu la carte dans la boucle puisque si pas de hike, inutile de l'afficher-->
-  hike.coords {{hike.coords |json}}
+  <div class="data">
+    hike.coords {{hike.coords |json}}
+  </div>
   <app-map *ngIf="hike.coords" [hikeCoords]="hike.coords" [hike]="hike"></app-map>
 
   <button class="btn btn-warning" [routerLink]="['/create',hike.id]">Editer</button>

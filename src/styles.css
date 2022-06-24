@@ -6,18 +6,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  margin: 20px;
-  width: 70vw;
+  margin: 20px auto;
+  width: 60vw;
   height: 50vw;
 }
 
 .map-border {
   border: 5px solid orange;
-  height: 100%;
+  /* height: 100%; */
 }
 
 #map {
-  height: 100%;
+  height: 50vh;
 }
 
 

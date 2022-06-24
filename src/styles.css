@@ -52,12 +52,12 @@ p {
 
 .toolbar {
   /* position: absolute; */
-  top: 0;
+  /* top: 0;
   left: 0;
   right: 0;
   height: 60px;
   display: flex;
-  align-items: center;
+  align-items: center; */
   background-color: #1976d2;
   color: white;
   font-weight: 600;
@@ -86,7 +86,7 @@ p {
   text-align: center;
 }
 
-svg.material-icons {
+/* svg.material-icons {
   height: 24px;
   width: auto;
 }
@@ -97,7 +97,7 @@ svg.material-icons:not(:last-child) {
 
 .card svg.material-icons path {
   fill: #888;
-}
+} */
 
 .card-container {
   display: flex;
@@ -265,6 +265,14 @@ svg#clouds {
 
 
 /* Responsive Styles */
+
+@media screen and (max-width: 912px){
+  .map-wrapper{
+    width: 90vw;
+  }
+  
+}
+
 @media screen and (max-width: 767px) {
 
   .card-container>*:not(.circle-link),
@@ -285,6 +293,7 @@ svg#clouds {
     right: 120px;
     transform: rotate(-5deg);
   }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -295,9 +304,7 @@ svg#clouds {
     visibility: hidden;
   }
 
-  .map-wrapper{
-    width: 90vw;
-  }
+
 
   /* h1{font-size: 1em;text-transform: capitalize;} */
 }

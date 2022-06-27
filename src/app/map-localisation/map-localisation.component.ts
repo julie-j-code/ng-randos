@@ -5,12 +5,6 @@ import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder";
 import * as ELG from "esri-leaflet-geocoder";
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
-});
 
 @Component({
   selector: 'app-map-localisation',
@@ -21,6 +15,10 @@ export class MapLocalisationComponent implements OnInit {
   map: any;
   marker: any;
   results: any;
+  icon=new L.Icon({
+    iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
+  }  )  
 
   constructor() { }
 
@@ -57,7 +55,7 @@ export class MapLocalisationComponent implements OnInit {
         }
       ).addTo(this.map);
 
-      this.marker = L.marker([coords.latitude, coords.longitude]).addTo(this.map);
+      this.marker = L.marker([coords.latitude, coords.longitude], { icon: this.icon }).addTo(this.map);
 
       this.marker.bindPopup('<b>Hi</b>').openPopup();
 

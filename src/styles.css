@@ -1,4 +1,6 @@
-@import "~leaflet/dist/leaflet.css";
+
+
+
 
 .map-wrapper {
   position: relative;
@@ -18,6 +20,7 @@
 
 #map {
   height: 50vh;
+  background-color: #e6ebf1;
 }
 
 
@@ -30,6 +33,8 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -51,13 +56,6 @@ p {
 }
 
 .toolbar {
-  /* position: absolute; */
-  /* top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center; */
   background-color: #1976d2;
   color: white;
   font-weight: 600;
@@ -77,27 +75,12 @@ p {
 }
 
 .content {
-  /* display: flex; */
   margin: 82px auto 32px;
   padding: 0 16px;
   max-width: 960px;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
-/* svg.material-icons {
-  height: 24px;
-  width: auto;
-}
-
-svg.material-icons:not(:last-child) {
-  margin-right: 8px;
-}
-
-.card svg.material-icons path {
-  fill: #888;
-} */
 
 .card-container {
   display: flex;
@@ -148,7 +131,7 @@ input, select, textarea, label, .data{
 
 .card.card-small {
   height: 16px;
-  width: 168px;
+  /* width: 168px; */
 }
 
 .card-container .card:not(.highlight-card) {
@@ -165,7 +148,8 @@ input, select, textarea, label, .data{
 }
 
 h1 {
-  line-height: 50px;
+  line-height: 40px;
+  height: 40px;
 }
 
 .card.highlight-card {
@@ -188,10 +172,10 @@ h1 {
 }
 
 svg#rocket {
-  width: 80px;
+  width: 90px;
   position: absolute;
   left: -20px;
-  top: -24px;
+  top: -15px;
 }
 
 svg#rocket-smoke {

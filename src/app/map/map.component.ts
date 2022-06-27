@@ -1,5 +1,11 @@
-import { Component, AfterViewInit, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, AfterViewInit, Input, OnInit } from '@angular/core';
+// pour l'autocomplétion et l'apparition des résultats de recherche
+// import "leaflet/dist/leaflet.css";
 import * as L from 'leaflet';
+import * as ELG from "esri-leaflet-geocoder";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder";
+
 import { Hike } from '../shared/hike';
 
 @Component({
@@ -7,15 +13,15 @@ import { Hike } from '../shared/hike';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit, AfterViewInit, OnChanges {
+export class MapComponent implements AfterViewInit {
   map: any;
   marker: any;
   @Input() hikeCoords: any;
-  @Input() hike: any;
+  @Input() hike: Hike;
   lat: any
   lng: any;
   markerFocus: any
-  descriptionMap:string=""
+  descriptionMap: string = ""
 
   // retrieve from https://gist.github.com/ThomasG77/61fa02b35abf4b971390
   smallIcon = new L.Icon({
@@ -31,19 +37,11 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
   constructor() {
   }
 
-  ngOnInit(): void {
-
-  }
-
   ngAfterViewInit(): void {
     this.createMap();
 
-
-
-
-
+    // pour actionner draggable marker
     this.marker.on('dragend', () => {
-      // Do stuff
       console.log("coucou")
 
       this.lat = this.marker.getLatLng().lat;
@@ -57,20 +55,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 
     });
 
-
-
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("y a eu du changement")
-    console.log(changes)
-    console.log("focus sur changements", changes.hikeCoords.currentValue)
-    this.hikeCoords = changes.hikeCoords.currentValue
-    console.log(this.hikeCoords)
-
-
+    
 
   }
+
 
   createMap() {
     console.log("lala", this.hikeCoords)
@@ -80,21 +68,19 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
         lat: this.hikeCoords.lat,
         lng: this.hikeCoords.lng
       };
-      this.descriptionMap=this.hike.name
+      this.descriptionMap = this.hike.name
 
     } else {
+      // le  point de focus par défaut qui sera plus tard celui du visiteur
       this.markerFocus = {
-        // lat:48.11855897570442,
-        // lng:-1.6051587229594593
         lat: 48.114384,
         lng: -1.669494
       };
-      this.descriptionMap=`
+      this.descriptionMap = `
       Le parc du Thabor, situé à Rennes à proximité du centre-ville,
       est un parc public aménagé sur plus de dix hectares dont la particularité est de mêler un jardin à la française,
       un jardin à l’anglaise et un important jardin botanique.`
     }
-
 
     const zoomLevel = 12;
 
@@ -110,17 +96,54 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
     });
 
     mainLayer.addTo(this.map);
-    // const descriptionMap = `
-    //   Le parc du Thabor, situé à Rennes à proximité du centre-ville,
-    //   est un parc public aménagé sur plus de dix hectares dont la particularité est de mêler un jardin à la française,
-    //   un jardin à l’anglaise et un important jardin botanique.`;
 
     const popupOptions = {
       coords: this.markerFocus,
       text: this.descriptionMap,
       open: true
     };
+
     this.addMarker(popupOptions);
+
+  // pour la recherche
+  const searchControl = new ELG.geosearch({
+    useMapBounds: false,
+    background: { // autocasts new ColorBackground()
+      color: "magenta" // autocasts as new Color()
+    },
+    providers: [
+      ELG.arcgisOnlineProvider({
+        apikey: "AAPK829991d5c6a8476c8914fba4c8c8a7a3KooiYZEgRAUO1gESaLfnIdgcBSKEAR4KUUnDXl7tFJMmTL76Rh-8z8XMX5uRnEri"
+      })
+    ]
+  });
+
+  const results = new L.LayerGroup().addTo(this.map);
+  searchControl
+  .on("results", function (data) {
+    results.clearLayers();
+    for (let i = data.results.length - 1; i >= 0; i--) {
+      results.addLayer(L.marker(data.results[i].latlng));
+    }
+  })
+  .addTo(this.map);
+
+  this.map.on("click", (e) => {
+   new ELG.ReverseGeocode().latlng(e.latlng).run((error, result) => {
+     if (error) {
+       return;
+     }
+     if (this.marker && this.map.hasLayer(this.marker))
+       this.map.removeLayer(this.marker);
+
+     this.marker = L.marker(result.latlng)
+       .addTo(this.map)
+       .bindPopup(result.address.Match_addr)
+       .openPopup();
+   });
+ });
+ // fin de la recherche
+
 
   }
 
@@ -135,6 +158,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 
 
   }
+
+  
 
 
   // marker.on('dragend', function (e) {

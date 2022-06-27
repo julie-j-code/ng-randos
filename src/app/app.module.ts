@@ -12,8 +12,11 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddHikeComponent } from './add-hike/add-hike.component';
-import { NglCoreModule } from 'angular-leaflet';
+import { NglCoreModule, NglMarkerModule, NglVectorsModule } from 'angular-leaflet';
 import { MapComponent } from './map/map.component';
+import { MapSearchComponent } from './map-search/map-search.component';
+import { MapLocalisationComponent } from './map-localisation/map-localisation.component';
+import { MapHikesMarkerComponent } from './map-hikes-marker/map-hikes-marker.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,19 @@ import { MapComponent } from './map/map.component';
     HomeComponent,
     ContactComponent,
     AddHikeComponent,
-    MapComponent
+    MapComponent,
+    MapSearchComponent,
+    MapLocalisationComponent,
+    MapHikesMarkerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NglCoreModule,
+    NglVectorsModule,
+    NglMarkerModule
 
   ],
   providers: [HikeService],

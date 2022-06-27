@@ -11,7 +11,11 @@
       "duration": "240",
       "heightDifference": "267",
       "evaluation": "2",
-      "description": "Randonnée sympa, à démarrer par le plan d'eau pour finir sur les hauteurs de Saint Aubin. Rochers imposants et des arbres magnifiques sont effectivement au rendez-vous. Bonne balade !"
+      "description": "Randonnée sympa, à démarrer par le plan d'eau pour finir sur les hauteurs de Saint Aubin. Rochers imposants et des arbres magnifiques sont effectivement au rendez-vous. Bonne balade !",
+      "coords":{
+        "lat": 48.2558306,
+        "lng": -1.4939449
+      }
     },
     {
       "id": 2,
@@ -40,7 +44,11 @@
       "duration": "90",
       "heightDifference": "267",
       "description": "L'occasion de visiter un des deux chateaux dans lequel a été tourné Kaamelott. A ceux qui vous diront que le point de vue du haut du donjon est panoramique, vous pourrez répondre : c'est pas faux",
-      "evaluation": "3"
+      "evaluation": "3",
+      "coords":{
+        "lat": 45.6391962,
+        "lng": 5.0777439
+      }
     },
     {
       "id": 4,

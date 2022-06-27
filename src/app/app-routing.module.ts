@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HikeDetailsComponent } from './hike-details/hike-details.component';
 import { HikeListComponent } from './hike-list/hike-list.component';
 import { HomeComponent } from './home/home.component';
+import { MapSearchComponent } from './map-search/map-search.component';
 
 const routes: Routes = [
 
